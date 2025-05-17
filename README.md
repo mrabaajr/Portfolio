@@ -1,5 +1,5 @@
 <h2 align="center">
-  Rahul Jha | Portfolio Website<br/>
+  Rafael Abaa Jr. | Portfolio Website<br/>
   <a href="https://www.rahuljha.info/" target="_blank">rahul jha</a>
 </h2>
 <div align="center">
