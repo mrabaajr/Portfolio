@@ -17,7 +17,7 @@
     "react-icons": "^4.10.1",
     "react-parallax-tilt": "^1.7.151",
     "react-router-dom": "^6.14.1",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^3.0.1",
     "typewriter-effect": "^2.20.1",
     "web-vitals": "^3.3.2"
   },
@@ -45,5 +45,8 @@
       "last 1 safari version"
     ],
     "homepage": "https://<your_github_username>.github.io/<your_repo_name>/"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
