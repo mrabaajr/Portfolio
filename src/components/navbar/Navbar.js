@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import logoLight from "../../Assets/logoLight.png";
 import logoDark from "../../Assets/logoDark.png";
 
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // Make sure Link is imported
 import "./navbar.css";
 
 function NavBar() {
@@ -15,6 +15,7 @@ function NavBar() {
   const [navColour, updateNavbar] = useState(false);
   const [{ themename, toggeltheme }] = useContext(ThemeContext);
 
+  // Handler for scroll event to change navbar color
   function scrollHandler() {
     if (window.scrollY >= 20) {
       updateNavbar(true);
@@ -22,19 +23,31 @@ function NavBar() {
       updateNavbar(false);
     }
   }
+
+  // Effect to apply dark mode class to body and toggle switch
   useEffect(() => {
     const body = document.body;
+    // Query for the toggle-inner element directly, as it might not be immediately available on mount
     const toggle = document.querySelector(".toggle-inner");
     if (themename === "dark") {
       body.classList.add("dark-mode");
-      toggle.classList.add("toggle-active");
+      if (toggle) { // Check if toggle exists before adding class
+        toggle.classList.add("toggle-active");
+      }
     } else {
       body.classList.remove("dark-mode");
-      toggle.classList.remove("toggle-active");
+      if (toggle) { // Check if toggle exists before removing class
+        toggle.classList.remove("toggle-active");
+      }
     }
-  }, [themename]);
+  }, [themename]); // Re-run when themename changes
 
-  window.addEventListener("scroll", scrollHandler);
+  // Add scroll event listener when component mounts
+  // Remove event listener when component unmounts to prevent memory leaks
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+    return () => window.removeEventListener("scroll", scrollHandler);
+  }, []); // Empty dependency array ensures this runs only once on mount/unmount
 
   return (
     <Navbar
@@ -44,12 +57,14 @@ function NavBar() {
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
-        <Navbar.Brand href="/" className="d-flex">
+        {/* Changed Navbar.Brand to use 'as={Link}' and 'to="/"' */}
+        {/* This ensures react-router-dom handles the navigation, respecting HashRouter */}
+        <Navbar.Brand as={Link} to="/" className="d-flex">
           <img
             src={themename === "light" ? logoDark : logoLight}
             className="img-fluid logo"
             alt="brand"
-            style={{width: "48", height: "40"}}
+            style={{width: "48", height: "40"}} // Inline style for width/height
           />
         </Navbar.Brand>
 
