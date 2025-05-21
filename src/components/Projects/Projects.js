@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import ProjectCard from "./ProjectCards";
 
+// Import existing project images (keep these as they are)
 import PrivateChat from "../../Assets/Projects/PrivateChat.png";
 import Portfolio from "../../Assets/Projects/Portfolio.png";
 import Ecart from "../../Assets/Projects/ecart.png";
@@ -19,6 +20,7 @@ function Projects() {
         </h1>
         <p>Here are a few projects I have worked on recently.</p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          {/* Existing Portfolio Website Project Card */}
           <Col md={6} lg={4} className="project-card">
             <ProjectCard
               imgPath={Portfolio}
@@ -27,6 +29,30 @@ function Projects() {
               ghLink="https://github.com/mrabaajr/Repos"
             />
           </Col>
+
+          <Col md={6} lg={4} className="project-card">
+            <ProjectCard
+              imgPath="https://placehold.co/600x400/2C3531/FFFFFF?text=Coming+Soon"
+              title="Financial Tracker"
+              description="A financial tracker that helps you manage your expenses and income effectively."
+              ghLink="https://github.com/mga-anak-ni-raf/Financial-Tracker#" 
+              demoLink="https://financial-tracker-tp3g.onrender.com/index#" 
+              isBlog={false} // Set to true if it's a blog post, false for a project
+            />
+          </Col>
+
+          {/* You can add more project cards here following the same structure */}
+          {/*
+          <Col md={6} lg={4} className="project-card">
+            <ProjectCard
+              imgPath={PrivateChat} // Example using an existing image import
+              title="Another Project"
+              description="Description for another project."
+              ghLink="https://github.com/your-username/another-repo"
+              demoLink="https://another-project.vercel.app/"
+            />
+          </Col>
+          */}
         </Row>
       </Container>
       <ScrollToTop />
