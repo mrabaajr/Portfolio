@@ -42,7 +42,7 @@ function Home2() {
               <br />
               <br />
               Currently expanding my portfolio by building more{" "}
-              <i className="primary-header">projects </i>projects that I can add
+              <i className="primary-header">projects </i> that I can add
               here.
             </p>
           </Col>
