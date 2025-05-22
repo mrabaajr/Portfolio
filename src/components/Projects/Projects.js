@@ -27,7 +27,7 @@ function Projects() {
               imgPath={Portfolio}
               title="Portfolio Website"
               description="My personal Portfolio Website. It is fully responsive website which supports both dark and light mode."
-              ghLink="https://github.com/mrabaajr/Repos"
+              ghLink="https://github.com/mrabaajr/Portfolio"
             />
           </Col>
 
